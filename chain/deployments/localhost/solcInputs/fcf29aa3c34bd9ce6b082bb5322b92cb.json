@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Exchange.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.8;\n\nerror Exchange_NotEnoughFunds();\nerror Exchange_NotProvider();\nerror Exchange_CanNotReleaseFunds();\n\ncontract Exchange {\n    uint256 private constant DECIMALS = 18;\n    uint256 private constant TEN_PERCENT = 10 * 1e16;\n    address private immutable i_provider;\n    struct Metadata {\n        address seller;\n        string transactionState;\n        address buyer;\n        uint256 price;\n    }\n    mapping(string => Metadata) private s_storage;\n\n    modifier OnlyProvider() {\n        if (msg.sender != i_provider) revert Exchange_NotProvider();\n        _;\n    }\n\n    constructor() {\n        i_provider = msg.sender;\n    }\n\n    function deductAmount(uint256 value) private pure returns (uint256) {\n        return (value * TEN_PERCENT) / 1e18;\n    }\n\n    function sell(string memory _txtId, uint256 _price) public {\n        Metadata memory currentTransaction = Metadata({\n            seller: msg.sender,\n            transactionState: \"notSold\",\n            buyer: address(0),\n            price: _price\n        });\n\n        s_storage[_txtId] = currentTransaction;\n    }\n\n    function buy(string memory _txtId) public payable {\n        if (msg.value != s_storage[_txtId].price)\n            revert Exchange_NotEnoughFunds();\n\n        s_storage[_txtId].buyer = msg.sender;\n        s_storage[_txtId].transactionState = \"pending\";\n    }\n\n    function releaseFund(string memory _txtId) public payable OnlyProvider {\n        uint256 deducted = deductAmount(s_storage[_txtId].price);\n        address seller = s_storage[_txtId].seller;\n        uint256 amount = s_storage[_txtId].price - deducted;\n        s_storage[_txtId].transactionState = \"sold\";\n\n        (bool callSuccess, ) = payable(seller).call{value: amount}(\"\");\n\n        if (!callSuccess) revert Exchange_CanNotReleaseFunds();\n    }\n\n    function getProvider() public view returns (address) {\n        return i_provider;\n    }\n\n    function getDecimal() public pure returns (uint256) {\n        return DECIMALS;\n    }\n\n    function getStatus(\n        string memory _txtId\n    ) public view returns (address, string memory, address, uint256) {\n        address seller = s_storage[_txtId].seller;\n        string memory transactionState = s_storage[_txtId].transactionState;\n        address buyer = s_storage[_txtId].buyer;\n        uint256 price = s_storage[_txtId].price;\n\n        return (seller, transactionState, buyer, price);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
