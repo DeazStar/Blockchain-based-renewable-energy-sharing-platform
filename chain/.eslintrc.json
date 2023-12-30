@@ -19,6 +19,7 @@
     "func-names": "off",
     "import/extensions": "off",
     "import/named": "off",
+    "import/no-extraneous-dependencies": "off",
     "no-unused-vars": [
       "error",
       {
