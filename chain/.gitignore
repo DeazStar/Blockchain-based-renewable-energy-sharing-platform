@@ -11,4 +11,7 @@ node_modules
 
 # solidity-coverage files
 /coverage
-/coverage.json
+/coverage.jso
+
+#deployment files
+
