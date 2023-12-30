@@ -9,8 +9,11 @@
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "hardhat": "^2.19.2",
-    "hardhat-deploy": "^0.11.44"
+    "hardhat-deploy": "^0.11.44",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
