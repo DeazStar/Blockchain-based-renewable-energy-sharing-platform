@@ -6,10 +6,9 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
+  deviceId: {
     type: String,
     required: true,
-    minLength: 8,
   },
   accountStatus: {
     type: String,
@@ -21,6 +20,6 @@ const userSchema = mongoose.Schema({
   },
 });
 
-const userModel = mongoose.Model('User', userSchema);
+const userModel = mongoose.model('User', userSchema);
 
 module.exports = userModel;
