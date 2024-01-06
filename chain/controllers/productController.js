@@ -4,10 +4,11 @@ const releaseFunds = require('../scripts/relaseFunds');
 
 const postProduct = async (req, res, next) => {
   const { wallet } = req.user;
-  const { energyAmount } = req.body;
+  const { energyAmount, price } = req.body;
 
   const product = await Product.create({
     energyAmount: Number(energyAmount),
+    price,
     userWallet: wallet,
   });
 
