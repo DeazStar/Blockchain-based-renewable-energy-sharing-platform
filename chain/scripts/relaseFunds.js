@@ -1,15 +1,24 @@
-const { ethers } = require('hardhat');
+const { task } = require('hardhat/config');
 
-const releaseFunds = async (txtId) => {
-  const accounts = await ethers.getSigners();
-  const deployer = accounts[0];
+task('releaseFunds', 'Release funds for a given txtId')
+  .addParam('txtid', 'The txtId to release funds for')
+  .setAction(async (taskArgs, hre) => {
+    const { ethers } = hre;
+    const { txtid } = taskArgs;
 
-  const contract = await ethers.getContractAt('Exchange', deployer);
+    console.log(txtid);
 
-  const transactionResponse = await contract.releaseFund(txtId);
-  const transactionReceipt = await transactionResponse;
+    const accounts = await ethers.getSigners();
+    const deployer = accounts[0];
 
-  return transactionReceipt;
-};
+    const contract = await ethers.getContractAt(
+      'Exchange',
+      '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+      deployer,
+    );
 
-module.exports = releaseFunds;
+    const transactionResponse = await contract.releaseFund(txtid);
+    const transactionReceipt = await transactionResponse;
+
+    console.log('Transaction Receipt:', transactionReceipt);
+  });
