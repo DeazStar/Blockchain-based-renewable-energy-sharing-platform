@@ -1,6 +1,7 @@
 require('@nomicfoundation/hardhat-toolbox');
 require('hardhat-deploy');
 require('dotenv').config();
+require('./scripts/relaseFunds');
 
 const { SEPOLIA_RPC_URL, SEPOLIA_PRIVATE_KEY } = process.env;
 
