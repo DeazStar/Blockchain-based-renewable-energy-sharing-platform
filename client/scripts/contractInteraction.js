@@ -10,3 +10,15 @@ export async function sellContractMethod(txtId, price) {
 
   return await transactionResponse;
 }
+
+export async function buyContractMethod(txtId, price) {
+  const priceInEth = ethers.parseEther(price);
+
+  const ExchangeContract = await getContract();
+
+  const transactionResponse = await ExchangeContract.buy(txtId, {
+    value: priceInEth,
+  });
+
+  return await transactionResponse;
+}
