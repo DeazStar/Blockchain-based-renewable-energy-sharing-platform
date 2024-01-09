@@ -2,7 +2,7 @@ import React from "react";
 
 function Login(props) {
 return (
-<div className="bg-slate-900 flex flex-col items-center justify-center h-screen">
+<div className="bg-slate-900 flex flex-col items-center justify-center h-screen w-screen">
     <header className="flex flex-col items-start">
     <h1 className="text-white text-4xl font-bold mb-2 ml-8 mt-12">Sign up</h1>
     <h1 className="text-white text-2xl absolute  left-8">BBESP</h1>
