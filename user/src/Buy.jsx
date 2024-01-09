@@ -8,7 +8,7 @@ setIsSelected(!isSelected);
 };
 
 return (
-<div className="bg-slate-900 flex flex-col items-center justify-center h-screen">
+<div className="bg-slate-900 flex flex-col items-center justify-center h-screen w-screen">
     <header className="flex flex-col items-start">
     <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
     <nav className="flex items-start justify-between gap-5 self-start max-md:max-w-full max-md:flex-wrap">
