@@ -2,7 +2,7 @@ import React from "react";
 
 function Home(props) {
 return (
-    <div className="bg-slate-900 flex flex-col items-center justify-center h-screen">
+    <div className="bg-slate-900 flex flex-col items-center justify-center h-screen w-screen">
     <header className="flex flex-col items-start">
     <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
     <div className="self-stretch flex items-stretch justify-end gap-5 max-md:max-w-full max-md:flex-wrap">
