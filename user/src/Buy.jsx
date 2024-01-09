@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function Buy(props) {
 const [isSelected, setIsSelected] = useState(false);
@@ -12,21 +14,21 @@ return (
     <header className="flex flex-col items-start">
     <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
     <nav className="flex items-start justify-between gap-5 self-start max-md:max-w-full max-md:flex-wrap">
-        <a href="Home.jsx" className="text-white text-center text-xl self-center whitespace-nowrap my-auto">
+        <Link to="/" className="text-white text-center text-xl self-center whitespace-nowrap my-auto">
         Home
-        </a>
-        <a href="Sell.jsx" className="text-white text-center text-xl self-center my-auto">
+        </Link>
+        <Link to="/buy" className="text-white text-center text-xl self-center my-auto">
         Sell
-        </a>
-        <button
+        </Link>
+        <Link
+        to="/sell"
         className="text-white text-center text-xl bg-zinc-300 bg-opacity-30 self-stretch grow justify-center items-stretch pl-10 pr-14 py-4 rounded-3xl max-md:px-5"
-        onClick={handleButtonClick}
         >
         Buy
-        </button>
-        <a href="#" className="text-white text-center text-xl self-center my-auto">
+        </Link>
+        <Link to="/dashboard" className="text-white text-center text-xl self-center my-auto">
         Dashboard
-        </a>
+        </Link>
     </nav>
     </header>
     <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl">
