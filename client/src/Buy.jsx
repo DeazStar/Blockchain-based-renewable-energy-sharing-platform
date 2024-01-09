@@ -17,11 +17,11 @@ return (
         <Link to="/" className="text-white text-center text-xl self-center whitespace-nowrap my-auto">
         Home
         </Link>
-        <Link to="/buy" className="text-white text-center text-xl self-center my-auto">
+        <Link to="/sell" className="text-white text-center text-xl self-center my-auto">
         Sell
         </Link>
         <Link
-        to="/sell"
+        to="/buy"
         className="text-white text-center text-xl bg-zinc-300 bg-opacity-30 self-stretch grow justify-center items-stretch pl-10 pr-14 py-4 rounded-3xl max-md:px-5"
         >
         Buy
