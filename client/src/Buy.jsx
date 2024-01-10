@@ -10,17 +10,17 @@ function Buy({ product }) {
     setIsSelected(!isSelected);
     const transactionResponse = await buyContractMethod(
       product._id,
-      String(product.price),
+      String(product.price)
     );
 
     console.log(transactionResponse);
 
     await axios.post(
-      "http://localhost:5000/api/v1/product/release",
+      "https://bbresp.up.railway.app/api/v1/product/release",
       { txtId: product._id },
       {
         withCredentials: true,
-      },
+      }
     );
   }
 

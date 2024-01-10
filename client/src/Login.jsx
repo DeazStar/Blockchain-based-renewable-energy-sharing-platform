@@ -12,14 +12,14 @@ function Login({ setUser, setProduct }) {
     let product;
     async function handleAuth() {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/signup",
+        "https://bbresp.up.railway.app/api/v1/user/signup",
         {
           wallet,
           deviceId,
         },
         {
           withCredentials: true,
-        },
+        }
       );
 
       user = data.data.user;
@@ -30,7 +30,7 @@ function Login({ setUser, setProduct }) {
         "http://localhost:5000/api/v1/product/",
         {
           withCredentials: true,
-        },
+        }
       );
 
       if (data.data.product != null) product = data.data.product;

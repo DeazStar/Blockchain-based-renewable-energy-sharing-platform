@@ -7,12 +7,12 @@ function Sell() {
   const [amount, setAmount] = useState(null);
   async function handleSelling() {
     const data = await axios.post(
-      "http://localhost:5000/api/v1/product",
+      "https://bbresp.up.railway.app/api/v1/product",
       {
         energyAmount: amount,
         price: 0.001,
       },
-      { withCredentials: true },
+      { withCredentials: true }
     );
 
     console.log(data.data.data.product);

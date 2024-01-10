@@ -12,13 +12,13 @@ function Home({ setUser, setProduct }) {
       const wallet = await connectMetaMask();
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/login",
+        "https://bbresp.up.railway.app/api/v1/user/login",
         {
           wallet,
         },
         {
           withCredentials: true,
-        },
+        }
       );
 
       user = data.data.user;
@@ -29,7 +29,7 @@ function Home({ setUser, setProduct }) {
         "http://localhost:5000/api/v1/product/",
         {
           withCredentials: true,
-        },
+        }
       );
 
       if (data.data.product != null) product = data.data.product;
