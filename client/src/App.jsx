@@ -18,7 +18,10 @@ function App() {
         />
         <Route path="/buy" element={<Buy product={product} />} />
         <Route path="/sell" element={<Sell />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setUser={setUser} setProduct={setProduct} />}
+        />
       </Routes>
     </BrowserRouter>
   );
