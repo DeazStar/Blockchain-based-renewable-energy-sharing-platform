@@ -21,11 +21,10 @@ const postProduct = async (req, res, next) => {
 };
 
 const listProduct = async (req, res, next) => {
-  const product = await Product.find();
+  const product = await Product.findOne({ transactionState: 'notSold' });
 
   res.status(201).json({
     status: 'success',
-    resultLength: product.length,
     data: {
       product,
     },
