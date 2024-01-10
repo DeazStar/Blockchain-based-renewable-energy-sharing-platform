@@ -1,17 +1,18 @@
 import { ethers } from "ethers";
 import {
-  localhostContractAbi,
-  localhostContractAddress,
+  sepoliaContractAbi,
+  sepoliaContractAddress,
 } from "../config/contractDefination";
 
 export default async function getContract() {
   if (window.ethereum) {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
+
     const ExchangeContract = new ethers.Contract(
-      localhostContractAddress,
-      localhostContractAbi,
-      signer
+      sepoliaContractAddress,
+      sepoliaContractAbi,
+      signer,
     );
 
     return ExchangeContract;
