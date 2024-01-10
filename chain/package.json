@@ -16,7 +16,8 @@
     "hardhat": "^2.19.2",
     "hardhat-deploy": "^0.11.44",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3"
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
@@ -42,6 +43,7 @@
     "hardhat-deploy-ethers": "^0.4.1",
     "hardhat-gas-reporter": "^1.0.8",
     "mocha": "^10.2.0",
+    "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
     "solhint": "^4.0.0",
     "solidity-coverage": "^0.8.0",
