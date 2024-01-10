@@ -6,8 +6,8 @@
   "repository": "https://github.com/DeazStar/Blockchain-based-renewable-energy-sharing-platform",
   "author": "Naod Ararsa",
   "license": "MIT",
-  "script": {
-    "start": "nodemon server.js"
+  "scripts": {
+    "start": "yarn nodemon server.js"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
