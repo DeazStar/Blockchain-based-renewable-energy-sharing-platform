@@ -46,7 +46,12 @@ const login = catchAsync(async (req, res, next) => {
 
   await sendToken(res, { data: user._id });
 
-  res.status(200).json({ status: 'success', message: 'success' });
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
 });
 
 const authRoute = catchAsync(async (req, res, next) => {
