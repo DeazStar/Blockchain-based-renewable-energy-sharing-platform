@@ -27,7 +27,7 @@ function Login({ setUser, setProduct }) {
 
     async function getData() {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/product/",
+        "https://bbresp.up.railway.app/api/v1/product/",
         {
           withCredentials: true,
         }
