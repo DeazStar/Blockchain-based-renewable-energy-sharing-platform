@@ -18,7 +18,7 @@ function Home({ setUser, setProduct }) {
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       user = data.data.user;
@@ -26,10 +26,10 @@ function Home({ setUser, setProduct }) {
 
     async function getData() {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/product/",
+        "https://bbresp.up.railway.app/api/v1/product/",
         {
           withCredentials: true,
-        }
+        },
       );
 
       if (data.data.product != null) product = data.data.product;
