@@ -47,12 +47,13 @@ function Buy({ product }) {
           >
             Buy
           </Link>
-          <Link
-            to="/dashboard"
+          <a
+            href="https://app.arduino.cc/dashboards/03256a17-78fc-4751-a91c-ebcb053d8b10"
+            target="_blank"
             className="text-white text-center text-xl self-center my-auto"
           >
             Dashboard
-          </Link>
+          </a>
         </nav>
       </header>
       <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl">
