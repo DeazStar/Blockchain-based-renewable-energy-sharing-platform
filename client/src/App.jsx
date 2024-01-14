@@ -4,6 +4,8 @@ import Home from "./Home";
 import Sell from "./Sell";
 import Buy from "./Buy";
 import Login from "./Login";
+import Dash from './Dash';
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -22,6 +24,8 @@ function App() {
           path="/login"
           element={<Login setUser={setUser} setProduct={setProduct} />}
         />
+        <Route path="/dash" element={<Dash/>}/>
+
       </Routes>
     </BrowserRouter>
   );
