@@ -52,7 +52,7 @@ function Login({ setUser, setProduct }) {
         </h1>
         <h1 className="text-white text-2xl absolute  left-8">BBESP</h1>
       </header>
-      <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl">
+      <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(76,46,89)]">
         <input
           onChange={(e) => {
             setWallet(e.target.value);
