@@ -60,7 +60,7 @@ function Buy({ product }) {
           </a>
         </nav>
       </header>
-      <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl">
+      <div className="bg-blue-800 flex flex-col items-center mt-8 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(76,46,89)]">
         <h1 className="text-white text-4xl font-bold mb-8 ml-8 ">BUY</h1>
         <button
           className={`text-black text-center text-xl whitespace-nowrap justify-center items-center bg-neutral-100 mt-8 px-16 py-6 rounded-[100px] ${
