@@ -44,7 +44,7 @@ function Home({ setUser, setProduct }) {
   }
   return (
     <div className="bg-slate-900 flex flex-col items-center justify-center w-screen">
-      <header className="flex flex-col items-start mt-4">
+      <header className="flex flex-col items-start mt-4 mb-10">
         <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
         <nav className="absolute right-8">
             <Link
@@ -53,15 +53,14 @@ function Home({ setUser, setProduct }) {
             >
             Sign Up
             </Link>
-            <Link
-            to="#"
-            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5 ml-3"
-            >
-            Connect to Wallet
-            </Link>
+            <button
+            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
+            aria-label="Connect To Your Wallet">
+            Connect To Your Wallet
+            </button>
           </nav>
         </header>
-      <h1 className="text-7xl font-medium tracking-widest bg-clip-text self-center mt-10 max-md:max-w-full max-md:text-4xl max-md:mt-10">
+      <h1 className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-7xl font-medium tracking-widest self-center mt-10 max-md:max-w-full max-md:text-4xl max-md:mt-10">
         A Fast Blockchain.
       </h1>
       <h1 className="text-white text-7xl font-medium tracking-widest self-center mt-8 max-md:max-w-full max-md:text-4xl">
