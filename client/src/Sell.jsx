@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sellContractMethod } from "../scripts/contractInteraction";
 
-function Sell() {
-  const wallet_address = "John Doe";
+function Sell({user}) {
+  const wallet_address = user.wallet;
   const [amount, setAmount] = useState(null);
   async function handleSelling() {
     const data = await axios.post(
