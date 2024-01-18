@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { sellContractMethod } from "../scripts/contractInteraction";
 
 function Sell() {
+  const wallet_address = "John Doe";
   const [amount, setAmount] = useState(null);
   async function handleSelling() {
     const data = await axios.post(
