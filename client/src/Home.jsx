@@ -55,7 +55,7 @@ function Home({ setUser, setProduct }) {
             </Link>
             <button
             className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
-            aria-label="Connect To Your Wallet">
+            aria-label="Connect To Your Wallet" onClick={handleWalletConnection}>
             Connect To Your Wallet
             </button>
           </nav>
@@ -73,7 +73,7 @@ function Home({ setUser, setProduct }) {
       </div>
       <button
         className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
-        aria-label="Connect To Your Wallet"
+        aria-label="Connect To Your Wallet" onClick={handleWalletConnection}
       >
         Connect To Your Wallet
       </button>
