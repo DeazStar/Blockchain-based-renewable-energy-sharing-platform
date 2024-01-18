@@ -59,7 +59,7 @@ function Sell({user}) {
           </Link>
         </nav>
       </header>
-      <div className="bg-blue-800 flex flex-col items-center mt-4 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(76,46,89)]">
+      <div className="bg-blue-800 flex flex-col items-center mt-4 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(52,216,235)]">
         <h1 className="text-white text-4xl font-bold mb-4 ml-8 ">SELL</h1>
         <h3 className="text-white text-2xl font-bold mb-8 ml-8 ">
           Rate: 1KWh = $ 0.43BTC
