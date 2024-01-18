@@ -5,6 +5,7 @@ import axios from "axios";
 
 function Buy({ product }) {
   const [isSelected, setIsSelected] = useState(false);
+  const wallet_address = "John Doe";
 
   async function handleButtonClick() {
     setIsSelected(!isSelected);
