@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { buyContractMethod } from "../scripts/contractInteraction";
 import axios from "axios";
 
-function Buy({ product }) {
+function Buy({ product, user }) {
   const [isSelected, setIsSelected] = useState(false);
-  const wallet_address = "John Doe";
+  const wallet_address = user.wallet;
 
   async function handleButtonClick() {
     setIsSelected(!isSelected);
