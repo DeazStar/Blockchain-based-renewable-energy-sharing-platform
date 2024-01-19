@@ -54,7 +54,7 @@ function Home({ setUser, setProduct }) {
             Sign Up
             </Link>
             <button
-            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
+            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
             aria-label="Connect To Your Wallet" onClick={handleWalletConnection}>
             Connect To Your Wallet
             </button>
