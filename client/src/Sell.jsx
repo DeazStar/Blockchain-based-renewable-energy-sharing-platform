@@ -3,17 +3,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sellContractMethod } from "../scripts/contractInteraction";
 
-function Sell({user}) {
+function Sell({ user }) {
   const wallet_address = user.wallet;
   const [amount, setAmount] = useState(null);
+  let pricePerWatt;
   async function handleSelling() {
     const data = await axios.post(
-      "https://bbresp.up.railway.app/api/v1/product",
+      "http://localhost:5000/api/v1/product",
       {
         energyAmount: amount,
-        price: 0.001,
+        price: pricePerWatt,
       },
-      { withCredentials: true }
+      { withCredentials: true },
     );
 
     console.log(data.data.data.product);
@@ -24,15 +25,21 @@ function Sell({user}) {
 
     console.log(transactionResponse);
   }
+
+  pricePerWatt = amount * 0.001;
   return (
     <div className="bg-slate-900 flex flex-col items-center justify-center w-screen">
       <header className="flex flex-col items-start">
-        <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
-        <div className="flex items-center absolute right-8">
-          <img src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png" alt="Profile Icon" className="w-8 h-8 rounded-full" />
+        <h1 className="text-white text-2xl absolute left-8 mt-3">BBESP</h1>
+        <div className="flex items-center absolute right-8 mt-3">
+          <img
+            src="https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users-thumbnail.png"
+            alt="Profile Icon"
+            className="w-8 h-8 rounded-full"
+          />
           <span className="text-white text-sm ml-2">{wallet_address}</span>
         </div>
-        <nav className="flex items-start justify-between gap-5 self-start max-md:max-w-full max-md:flex-wrap">
+        <nav className="flex items-start mt-3 justify-between gap-5 self-start max-md:max-w-full max-md:flex-wrap">
           <Link
             to="/"
             className="text-white text-center text-xl self-center whitespace-nowrap my-auto"
@@ -59,10 +66,10 @@ function Sell({user}) {
           </Link>
         </nav>
       </header>
-      <div className="bg-blue-800 flex flex-col items-center mt-4 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(52,216,235)]">
-        <h1 className="text-white text-4xl font-bold mb-4 ml-8 ">SELL</h1>
+      <div className="bg-blue-800 flex flex-col items-center mt-14 px-20 py-12 rounded-2xl drop-shadow-[0_35px_35px_rgba(52,216,235)]">
+        <h1 className="text-white text-4xl font-bold mb-4">SELL</h1>
         <h3 className="text-white text-2xl font-bold mb-8 ml-8 ">
-          Rate: 1KWh = $ 0.43BTC
+          Rate: 1Watt = 0.001Eth
         </h3>
         <img
           loading="lazy"
@@ -71,14 +78,14 @@ function Sell({user}) {
         />
         <input
           type="number"
-          placeholder="Energy in KWH"
+          placeholder="Energy in Watt"
           className="text-black text-2xl bg-neutral-100 placeholder-gray-500 hover:bg-neutral-200 text-center px-8 py-4 rounded-[100px] mb-4 w-64 focus:outline-none focus:ring focus:border-cyan-800"
           onChange={(e) => {
             setAmount(e.target.value);
           }}
         />
         <h3 className="text-white text-2xl font-bold mb-2 ml-8 ">
-          Price = 43 BTC
+          Price = {pricePerWatt}
         </h3>
         <button
           onClick={handleSelling}

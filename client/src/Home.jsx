@@ -5,14 +5,14 @@ import connectMetaMask from "../scripts/connectMetaMask";
 function Home({ setUser, setProduct }) {
   const navigate = useNavigate();
 
-  async function handleWalletConnection() {
+  async function handleConnection() {
     let user;
     let product;
     async function handleWalletConnection() {
       const wallet = await connectMetaMask();
 
       const { data } = await axios.post(
-        "https://bbresp.up.railway.app/api/v1/user/login",
+        "http://localhost:5000/api/v1/user/login",
         {
           wallet,
         },
@@ -26,7 +26,7 @@ function Home({ setUser, setProduct }) {
 
     async function getData() {
       const { data } = await axios.get(
-        "https://bbresp.up.railway.app/api/v1/product/",
+        "http://localhost:5000/api/v1/product/",
         {
           withCredentials: true,
         },
@@ -47,19 +47,21 @@ function Home({ setUser, setProduct }) {
       <header className="flex flex-col items-start mt-4 mb-10">
         <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
         <nav className="absolute right-8">
-            <Link
+          <Link
             to="/login"
             className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5 mr-3"
-            >
+          >
             Sign Up
-            </Link>
-            <button
+          </Link>
+          <button
             className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
-            aria-label="Connect To Your Wallet" onClick={handleWalletConnection}>
+            aria-label="Connect To Your Wallet"
+            onClick={handleConnection}
+          >
             Connect To Your Wallet
-            </button>
-          </nav>
-        </header>
+          </button>
+        </nav>
+      </header>
       <h1 className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-7xl font-medium tracking-widest self-center mt-10 max-md:max-w-full max-md:text-4xl max-md:mt-10">
         A Fast Blockchain.
       </h1>
@@ -73,7 +75,8 @@ function Home({ setUser, setProduct }) {
       </div>
       <button
         className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
-        aria-label="Connect To Your Wallet" onClick={handleWalletConnection}
+        aria-label="Connect To Your Wallet"
+        onClick={handleConnection}
       >
         Connect To Your Wallet
       </button>
