@@ -16,7 +16,6 @@ function Buy({ product, user }) {
     );
 
     console.log(transactionResponse);
-    setTransactionCompleted(true);
 
     await axios.post(
       "https://bbresp.up.railway.app/api/v1/product/release",
@@ -25,6 +24,8 @@ function Buy({ product, user }) {
         withCredentials: true,
       },
     );
+
+    setTransactionCompleted(true);
   }
 
   return (
