@@ -6,6 +6,7 @@ import { sellContractMethod } from "../scripts/contractInteraction";
 function Sell({ user }) {
   const wallet_address = user.wallet;
   const [amount, setAmount] = useState(null);
+  const [transactionCompleted, setTransactionCompleted] = useState(false);
   let pricePerWatt;
   async function handleSelling() {
     const data = await axios.post(
@@ -24,6 +25,7 @@ function Sell({ user }) {
     const transactionResponse = await sellContractMethod(txtId, String(price));
 
     console.log(transactionResponse);
+    setTransactionCompleted(true);
   }
 
   pricePerWatt = amount * 0.001;
@@ -87,6 +89,11 @@ function Sell({ user }) {
         <h3 className="text-white text-2xl font-bold mb-2 ml-8 ">
           Price = {pricePerWatt}
         </h3>
+        {transactionCompleted && (
+          <div className="bg-green-500 text-white text-center py-2 px-4 rounded-md mb-4">
+            Transaction completed
+          </div>
+        )}
         <button
           onClick={handleSelling}
           className="text-white text-center text-xl whitespace-nowrap justify-center items-center bg-cyan-800 w-[212px] mt-2 px-16 py-6 rounded-[100px]"
