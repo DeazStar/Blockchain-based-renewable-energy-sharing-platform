@@ -5,14 +5,14 @@ import connectMetaMask from "../scripts/connectMetaMask";
 function Home({ setUser, setProduct }) {
   const navigate = useNavigate();
 
-  async function handleWalletConnection() {
+  async function handleConnection() {
     let user;
     let product;
     async function handleWalletConnection() {
       const wallet = await connectMetaMask();
 
       const { data } = await axios.post(
-        "https://bbresp.up.railway.app/api/v1/user/login",
+        "http://localhost:5000/api/v1/user/login",
         {
           wallet,
         },
@@ -26,7 +26,7 @@ function Home({ setUser, setProduct }) {
 
     async function getData() {
       const { data } = await axios.get(
-        "https://bbresp.up.railway.app/api/v1/product/",
+        "http://localhost:5000/api/v1/product/",
         {
           withCredentials: true,
         },
@@ -44,25 +44,25 @@ function Home({ setUser, setProduct }) {
   }
   return (
     <div className="bg-slate-900 flex flex-col items-center justify-center w-screen">
-      <header className="flex flex-col items-start">
+      <header className="flex flex-col items-start mt-4 mb-10">
         <h1 className="text-white text-2xl absolute left-8">BBESP</h1>
-        <nav className="flex items-start justify-between gap-5 self-start max-md:max-w-full max-md:flex-wrap">
+        <nav className="absolute right-8">
           <Link
             to="/login"
-            className="text-white text-center text-xl bg-zinc-300 bg-opacity-30 self-stretch grow justify-center items-stretch pl-10 pr-14 py-4 rounded-3xl max-md:px-5"
+            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5 mr-3"
           >
             Sign Up
           </Link>
           <button
-            to="#"
-            className="text-white text-center text-xl bg-zinc-300 bg-opacity-30 self-stretch grow justify-center items-stretch pl-10 pr-14 py-4 rounded-3xl max-md:px-5"
-            onClick={handleWalletConnection}
+            className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
+            aria-label="Connect To Your Wallet"
+            onClick={handleConnection}
           >
-            Connect to Wallet
+            Connect To Your Wallet
           </button>
         </nav>
       </header>
-      <h1 className="text-7xl font-medium tracking-widest bg-clip-text self-center mt-10 max-md:max-w-full max-md:text-4xl max-md:mt-10">
+      <h1 className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-7xl font-medium tracking-widest self-center mt-10 max-md:max-w-full max-md:text-4xl max-md:mt-10">
         A Fast Blockchain.
       </h1>
       <h1 className="text-white text-7xl font-medium tracking-widest self-center mt-8 max-md:max-w-full max-md:text-4xl">
@@ -76,6 +76,7 @@ function Home({ setUser, setProduct }) {
       <button
         className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
         aria-label="Connect To Your Wallet"
+        onClick={handleConnection}
       >
         Connect To Your Wallet
       </button>

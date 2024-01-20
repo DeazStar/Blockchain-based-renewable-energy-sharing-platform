@@ -16,8 +16,8 @@ function App() {
           path="/"
           element={<Home setUser={setUser} setProduct={setProduct} />}
         />
-        <Route path="/buy" element={<Buy product={product} />} />
-        <Route path="/sell" element={<Sell />} />
+        <Route path="/buy" element={<Buy product={product} user={user} />} />
+        <Route path="/sell" element={<Sell user={user} />} />
         <Route
           path="/login"
           element={<Login setUser={setUser} setProduct={setProduct} />}
