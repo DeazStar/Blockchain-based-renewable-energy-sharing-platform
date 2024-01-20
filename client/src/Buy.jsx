@@ -6,6 +6,7 @@ import axios from "axios";
 function Buy({ product, user }) {
   const [isSelected, setIsSelected] = useState(false);
   const wallet_address = user.wallet;
+  const [transactionCompleted, setTransactionCompleted] = useState(false);
 
   async function handleButtonClick() {
     setIsSelected(!isSelected);
@@ -15,6 +16,7 @@ function Buy({ product, user }) {
     );
 
     console.log(transactionResponse);
+    setTransactionCompleted(true);
 
     await axios.post(
       "https://bbresp.up.railway.app/api/v1/product/release",
@@ -81,6 +83,11 @@ function Buy({ product, user }) {
               : product.energyAmount + "--------" + product.price}
           </a>
         </button>
+        {transactionCompleted && (
+          <div className="bg-green-500 text-white text-center py-2 px-4 rounded-md mb-4">
+            Transaction completed
+          </div>
+        )}
         <button
           onClick={handleButtonClick}
           className="text-white text-center text-xl whitespace-nowrap justify-center items-center bg-cyan-800 w-[212px] mt-8 px-16 py-6 rounded-[100px]"
