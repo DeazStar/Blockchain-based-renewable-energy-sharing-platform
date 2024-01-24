@@ -12,7 +12,7 @@ function Login({ setUser, setProduct }) {
     let product;
     async function handleAuth() {
       const { data } = await axios.post(
-        "https://bbresp.up.railway.app/api/v1/user/signup",
+        "http://localhost:5000/api/v1/user/signup",
         {
           wallet,
           deviceId,
@@ -27,7 +27,7 @@ function Login({ setUser, setProduct }) {
 
     async function getData() {
       const { data } = await axios.get(
-        "https://bbresp.up.railway.app/api/v1/product/",
+        "http://localhost:5000/api/v1/product/",
         {
           withCredentials: true,
         }
