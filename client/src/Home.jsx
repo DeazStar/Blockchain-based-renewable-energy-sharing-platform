@@ -69,9 +69,8 @@ function Home({ setUser, setProduct }) {
         Efficient Energy .
       </h1>
       <div className="text-white text-center text-xl leading-8 tracking-wider self-center max-w-[723px] mt-8 max-md:max-w-full max-md:mt-10">
-        Our technology performing fast blockchain (120K TPS) and it has
-        guaranteed AI-based data security. Proof of Stake, its consensus
-        algorithm enables unlimited speeds.
+        Empowering blockchain for renewable energy, our technology ensures seamless transactions and secure data sharing.
+	Join our platform for greener tomorrow.
       </div>
       <button
         className="text-white text-center text-xl whitespace-nowrap justify-center items-stretch bg-cyan-800 self-center mt-20 px-8 py-6 rounded-[100px] max-md:mt-10 max-md:px-5"
