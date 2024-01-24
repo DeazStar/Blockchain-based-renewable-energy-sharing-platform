@@ -18,7 +18,7 @@ function Buy({ product, user }) {
     console.log(transactionResponse);
 
     await axios.post(
-      "https://bbresp.up.railway.app/api/v1/product/release",
+      "http://localhost:5000/api/v1/product/release",
       { txtId: product._id },
       {
         withCredentials: true,
@@ -81,7 +81,7 @@ function Buy({ product, user }) {
           >
             {product === null
               ? "No Available Energy"
-              : product.energyAmount + "--------" + product.price}
+              : product.energyAmount + "watt" +  "------" + product.price + "Eth"}
           </a>
         </button>
         {transactionCompleted && (
