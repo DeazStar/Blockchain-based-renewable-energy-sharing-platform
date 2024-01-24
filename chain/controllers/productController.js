@@ -32,7 +32,7 @@ const listProduct = async (req, res, next) => {
 };
 
 const releaseEnergy = async (req, res, next) => {
-  const { txtId } = req.body;
+  const { txtId, deviceId } = req.body;
 
   const product = await Product.findById(txtId);
   console.log(product);
@@ -40,7 +40,7 @@ const releaseEnergy = async (req, res, next) => {
   const command = `yarn hardhat --network sepolia releaseFunds --txtid ${txtId}`;
 
   const response = await axios.post(`${process.env.NODEMCU_URL}`, {
-    deviceId: product.deviceId,
+    deviceId,
     energyAmount: product.energyAmount,
   });
 
