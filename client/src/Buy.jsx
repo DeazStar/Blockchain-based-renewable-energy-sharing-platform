@@ -19,7 +19,7 @@ function Buy({ product, user }) {
 
     await axios.post(
       "http://localhost:5000/api/v1/product/release",
-      { txtId: product._id },
+      { txtId: product._id, deviceId: user.deviceId },
       {
         withCredentials: true,
       },
